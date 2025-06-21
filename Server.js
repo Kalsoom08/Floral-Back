@@ -1,1 +1,28 @@
-require('dotenv').config()
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./Config/db');
+connectDB();
+const app = express();
+app.use(cors())
+app.use(express.json());
+const PORT = process.env.PORT;
+
+//Admin Routes
+const adminProductsRoute = require('./Routes/Admin/productsRoute')
+
+//Public Routes
+const publicProductsRoute = require('./Routes/Public/productsRoute')
+
+//Admin API's
+app.use('/api/admin', adminProductsRoute)
+
+
+//Public API's
+app.use('/api/public', publicProductsRoute)
+
+
+
+app.listen(PORT, ()=>{
+    console.log('App is Runnning');
+})
