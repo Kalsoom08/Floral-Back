@@ -27,8 +27,6 @@ const addProduct = catchAsync(async(req, res)=>{
     })
 })
 
-
-
 const updateProduct = catchAsync(async (req, res) => {
   const { id } = req.params;
   const { title, description, price } = req.body;
