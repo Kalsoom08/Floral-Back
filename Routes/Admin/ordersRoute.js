@@ -1,8 +1,10 @@
-const upload = require('../../Middleware/cloudinary')
 const express = require('express')
 const router = express.Router()
-const {addOrder} = require('../../Controllers/Admin/ordersController')
+const {deleteOrder, updateOrder} = require('../../Controllers/Admin/orderController')
+const Verify = require('../../Middleware/verifyAdminMiddleware')
+const RestrictTo = require('../../Middleware/restrictToMiddleware')
 
-router.post('/order', upload.single('file'), addOrder)
+router.put('/order/:id', Verify,RestrictTo('admin') , updateOrder)
+router.delete('/order/:id', Verify,RestrictTo('admin') , deleteOrder)
 
-module.exports = router
+module.exports = router;

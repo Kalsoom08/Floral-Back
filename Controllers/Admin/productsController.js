@@ -1,4 +1,4 @@
-const {Products} = require('../../Models/productsModel')
+const Products = require('../../Models/productsModel')
 const cloudinary = require('../../Config/cloudinary')
 const catchAsync = require('../../Utils/catchAsync')
 const fs = require('fs')

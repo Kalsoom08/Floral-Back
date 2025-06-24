@@ -6,7 +6,7 @@ const ExpireIn = process.env.JWT_EXPIRE
 if(!Key) throw new Error('Missing JWT Key in env')
 
 const signToken = (payload)=>{
-    jwt.sign(payload, Key, {expiresIn: ExpireIn})
+   return jwt.sign(payload, Key, {expiresIn: ExpireIn})
 }
 
 const verifyToken = (token)=>{

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
   totalPrice: {
@@ -10,6 +10,7 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
+    enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
     default: 'pending'
   },
   products: [{
@@ -24,4 +25,4 @@ const orderSchema = new mongoose.Schema({
 });
 
 const Orders = mongoose.model('Orders', orderSchema);
-module.exports = Orders;
+module.exports = Orders; 
