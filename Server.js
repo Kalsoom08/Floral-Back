@@ -11,19 +11,24 @@ const PORT = process.env.PORT;
 //Admin Routes
 const adminProductsRoute = require('./Routes/Admin/productsRoute')
 const adminOrdersRoute = require('./Routes/Admin/ordersRoute')
+const adminReviewsRoute = require('./Routes/Admin/customerReviewRoutes')
 
 //Public Routes
 const publicProductsRoute = require('./Routes/Public/productsRoute')
 const publicOrdersRoute = require('./Routes/Public/ordersRoute')
 const authRoute = require('./Routes/Public/authRoutes')
+const reviewRoute = require('./Routes/Public/customerReviewRoutes')
+
 //Admin API's
 app.use('/api/admin', adminProductsRoute)
 app.use('/api/admin', adminOrdersRoute)
+app.use('/api/admin', adminReviewsRoute)
 
 //Public API's
 app.use('/api/public', publicProductsRoute)
 app.use('/api/public', publicOrdersRoute)
 app.use('/api/public', authRoute)
+app.use('/api/public', reviewRoute)
 
 
 
